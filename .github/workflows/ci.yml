@@ -1,0 +1,19 @@
+name: ci
+
+on: push
+
+jobs:
+  test_on_linux:
+    name: test Tracker contract
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - uses: actions/checkout@v2
+      - name: Install
+        run: npm i
+      - name: Build
+        run: npx hardhat compile
+      - name: Run tests
+        run: npx hardhat test
