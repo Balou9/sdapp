@@ -12,7 +12,7 @@ contract Tracker {
         address accountAddress;
     }
 
-    mapping ( uint=> TrackerInfo ) private routes;
+    mapping ( uint=> RouteTrackerInfo ) private routes;
 
     event routeCreatedEvent(address indexed accountAddress, string route);
 
