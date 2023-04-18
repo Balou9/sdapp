@@ -4,29 +4,26 @@ import "hardhat/console.sol";
 
 
 contract Tracker {
+    uint counter = 0;
 
-    struct RouteTrackerInfo {
-        uint id;
+    struct RouteInfo {
+        uint routeId;
         string goods;
-        string routes;
         address accountAddress;
     }
 
-    mapping ( uint=> RouteTrackerInfo ) private routes;
+    mapping ( uint=> RouteInfo ) private routes;
 
     event routeCreatedEvent(address indexed accountAddress, string route);
 
-    function addRoute(string calldata _route) external {
+    function addRoute(string calldata _route) public returns(Tracker.RouteInfo memory) {
 
         require(msg.sender != address(0x0), "The sender address must exist");
-        routeId.increment();
-        uint routeId = accountId.current();
+        uint routeId = counter+1;
 
         address accAddress = address(msg.sender);
-        RouteTrackerInfo memory newRoute = RouteTrackerInfo(accountId, _route, accAddress);
-        routes[routeId] = newRoute;
+        RouteInfo memory newRoute = RouteInfo(routeId, _route, accAddress);
 
-        emit routeCreatedEvent(accAddress, _route);
-        console.log("NEW ROUTE ADDED", newRoute.route);
+        return newRoute;
     }
 }
