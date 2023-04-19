@@ -14,7 +14,7 @@ contract Tracker {
 
     mapping ( uint=> RouteInfo ) private routes;
 
-    event routeCreatedEvent(address indexed accountAddress, string route);
+    event routeCreatedEvent(address indexed accountAddress, Tracker.RouteInfo route);
 
     function addRoute(string calldata _route) public returns(Tracker.RouteInfo memory) {
 
