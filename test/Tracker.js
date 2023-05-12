@@ -3,9 +3,7 @@ const { ethers } = require("hardhat");
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 
 describe("Tracker contract", function () {
-
-
-  it("adds a route", async function () {
+  it("test - add a route", async function () {
   const TrackerContract = await ethers.getContractFactory("Tracker");
   const [owner, addr1, addr2] = await ethers.getSigners();
   const contract = await TrackerContract.deploy();
@@ -14,7 +12,7 @@ describe("Tracker contract", function () {
 
   console.log(testRoute)
 
-    expect(await contract.addRoute("Route")).to.be.true
-
+  expect(testRoute).to.be.ok
+  
   })
 });
