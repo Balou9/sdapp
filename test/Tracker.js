@@ -8,7 +8,7 @@ describe("Tracker contract", function () {
   const [owner, addr1, addr2] = await ethers.getSigners();
   const contract = await TrackerContract.deploy();
 
-  const testRoute = await contract.addRoute("Route")
+  const testRoute = await contract.addRoute("Route from Lagos, Nigeria to Hamburg, Germany", "Lagos, Nigeria", "Hamburg, Germany", "onions")
 
   console.log(testRoute)
 
