@@ -15,7 +15,7 @@ contract Tracker {
 
     event routeCreatedEvent(address indexed accountAddress, Tracker.RouteInfo route);
 
-    function addRoute(string calldata _route) public returns(Tracker.RouteInfo memory) {
+    function addRoute(string calldata _route) public view returns(Tracker.RouteInfo memory) {
 
         require(msg.sender != address(0x0), "The sender address must exist");
         uint routeId = counter+1;
